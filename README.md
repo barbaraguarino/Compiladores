@@ -3,8 +3,6 @@
 Repositório destinado ao desenvolvimento dos projetos da disciplina de Compiladores. 
 O objetivo é aplicar os conceitos teóricos da construção de compiladores na prática, utilizando a linguagem Java e a ferramenta JFlex para a análise léxica.
 
----
-
 ## Conteúdo
 
 Este repositório contém a implementação de dois projetos principais:
@@ -21,15 +19,11 @@ A construção das fases iniciais de um compilador para a linguagem "Mini-Java",
 2.  **Analisador Sintático:** Verificação da estrutura gramatical do código.
 3.  **Analisador Semântico:** Verificação de tipos e outras regras de significado.
 
----
-
 ## Tecnologias Utilizadas
 
 * **Linguagem:** [Java](https://www.java.com/) (JDK 21)
 * **Geração de Scanner:** [JFlex](https://jflex.de/)
 * **Gerenciamento de Dependências:** [Maven](https://maven.apache.org/)
-
----
 
 ## Como Executar o Projeto
 
@@ -59,12 +53,8 @@ Siga as instruções abaixo para compilar e executar os projetos.
 4.  **Execute o Compilador Mini-Java:**
     (Instruções de como executar o compilador)
 
----
-
 ## Autores
 
 * [Barbara Nascimento](https://github.com/barbaraguarino)
 * [Pedro Muniz](https://github.com/muniz034)
 * [Giovana Beltrame](https://github.com/grbeltrame)
-
----
