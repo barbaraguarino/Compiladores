@@ -27,7 +27,7 @@ A construção das fases iniciais de um compilador para a linguagem "Mini-Java",
 
 ## Como Executar o Projeto
 
-Siga as instruções abaixo para compilar e executar os projetos.
+Siga as instruções abaixo para compilar e executar os scanners.
 
 ### Pré-requisitos
 
@@ -40,11 +40,13 @@ Siga as instruções abaixo para compilar e executar os projetos.
     ```bash
     git clone [https://github.com/barbaraguarino/Compiladores.git](https://github.com/barbaraguarino/Compiladores.git)
     cd Compiladores
+    git checkout minijava
     ```
 
 2.  **Compile o projeto com Maven:**
+    Este comando irá invocar o JFlex para gerar as classes `CalcLexer.java` e `MiniJavaLexer.java` e, em seguida, compilar todo o código-fonte.
     ```bash
-    mvn clean install
+    mvn clean compile
     ```
 
 3.  **Execute o Scanner da Calculadora:**
@@ -52,9 +54,9 @@ Siga as instruções abaixo para compilar e executar os projetos.
     java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/exemplos/calculadora/teste.calc
     ```
 
-4.  **Execute o Compilador Mini-Java:**
+4.  **Execute o Scanner da Mini-Java:**
     ```bash
-    
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/exemplos/minijava/Fatorial.mjava
     ```
 
 ## Autores
