@@ -49,11 +49,13 @@ Siga as instruções abaixo para compilar e executar os projetos.
 
 3.  **Execute o Scanner da Calculadora:**
     ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/exemplos/teste.calc
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/exemplos/calculadora/teste.calc
     ```
 
 4.  **Execute o Compilador Mini-Java:**
-    (Instruções de como executar o compilador)
+    ```bash
+    
+    ```
 
 ## Autores
 
