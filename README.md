@@ -49,7 +49,6 @@ Siga as instruções abaixo para compilar e executar os projetos.
 
 3.  **Execute o Scanner da Calculadora:**
     ```bash
-    mvn clean install
     java -cp target/classes org.uff.Main src/main/resources/exemplos/teste.calc
     ```
 
