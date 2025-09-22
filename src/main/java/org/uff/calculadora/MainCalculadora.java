@@ -7,7 +7,7 @@ import java.io.FileReader;
 /**
  * Main — programa de apoio para exercitar o scanner gerado pelo JFlex.
  * Uso: java -cp out org.uff.calculadora.Main <caminho-do-arquivo-de-entrada>
- * Ex.: java -cp out org.uff.calculadora.Main src/main/exemplos/teste_inicial.calc
+ * Ex.: java -cp out org.uff.calculadora.Main src/main/exemplos/calc_inicial.calc
  */
 public class MainCalculadora {
     public static void main(String[] args) throws Exception {
