@@ -19,7 +19,15 @@ public final class Symbol {
 
     @Override
     public String toString() {
-        return String.format("<Token: %-20s | Linha: %-4d | Coluna: %-4d | Lexema: '%s'>",
-                token, line, column, lexeme);
+        switch (token) {
+            case ID:
+                return String.format("<ID \"%s\">", lexeme);
+            case INTEGER_LITERAL:
+                return String.format("<NUM \"%s\">", lexeme);
+            case ERROR:
+                return String.format("<ERRO, (%d, %d)>", line, column);
+            default:
+                return String.format("<%s>", token.toString());
+        }
     }
 }
