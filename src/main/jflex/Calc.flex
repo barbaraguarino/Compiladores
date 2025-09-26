@@ -6,8 +6,7 @@
 */
 
 
-package org.uff; // o arquivo gerado será org/uff/CalcLexer.java
-
+package org.uff.calculadora;
 
 %%
 
