@@ -12,14 +12,14 @@ package org.uff.calculadora;
 
 
 // Diretivas do JFlex
-%class CalcLexer // nome da classe Java que o JFlex vai gerar
-%unicode // suporte a Unicode
-%line // JFlex mantém o número da linha (yyline)
-%column // JFlex mantém a coluna (yycolumn)
-%public // classe pública
-%final // classe final
-%type String // o método nextToken() retorna String nesta versão didática
-%function nextToken // nome do método gerado que devolve o próximo token
+%class CalcLexer
+%unicode
+%line
+%column
+%public
+%final
+%type String
+%function nextToken
 
 
 /* =========================
