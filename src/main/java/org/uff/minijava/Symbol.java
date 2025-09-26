@@ -19,15 +19,9 @@ public final class Symbol {
 
     @Override
     public String toString() {
-        switch (token) {
-            case ID:
-                return String.format("<ID \"%s\">", lexeme);
-            case INTEGER_LITERAL:
-                return String.format("<NUM \"%s\">", lexeme);
-            case ERROR:
-                return String.format("<ERRO, (%d, %d)>", line, column);
-            default:
-                return String.format("<%s>", token.toString());
+        if (token == Token.ID || token == Token.INTEGER_LITERAL) {
+            return String.format("<%s \"%s\">", token.toString(), lexeme);
         }
+        return String.format("<%s>", token.toString());
     }
 }
