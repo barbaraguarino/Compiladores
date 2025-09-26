@@ -1,0 +1,6 @@
+class Error3 {
+    public static void main(String[] args) {
+        int x
+        x = 5; // falta ';' na linha anterior
+    }
+}

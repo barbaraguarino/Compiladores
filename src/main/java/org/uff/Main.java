@@ -1,8 +1,6 @@
 package org.uff;
 
-
 import java.io.FileReader;
-
 
 /**
  * Main — programa de apoio para exercitar o scanner gerado pelo JFlex.
@@ -11,24 +9,19 @@ import java.io.FileReader;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-// Verifica se o usuário passou o caminho do arquivo de entrada
         if (args.length == 0) {
             System.out.println("Uso: java org.uff.Main <arquivo.calc>");
             return;
         }
 
-
-// Abre o arquivo informado e passa o reader para o scanner
         FileReader reader = new FileReader(args[0]);
-        CalcLexer lexer = new CalcLexer(reader); // classe gerada pelo JFlex a partir do Calc.flex
+        // CalcLexer lexer = new CalcLexer(reader); // classe gerada pelo JFlex a partir do Calc.flex
+        MiniJavaLexer lexer = new MiniJavaLexer(reader); // classe gerada pelo JFlex a partir do MiniJava.flex
 
-
-// Varre tokens até encontrar EOF
         String token;
         while (!(token = lexer.nextToken()).equals("EOF")) {
             System.out.println(token);
         }
-
 
         System.out.println("Fim da análise léxica.");
     }

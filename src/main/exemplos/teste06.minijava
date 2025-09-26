@@ -1,0 +1,5 @@
+class Error2 {
+    publc static void main(String[] args) { // 'publc' errado
+        System.out.println(1);
+    }
+}

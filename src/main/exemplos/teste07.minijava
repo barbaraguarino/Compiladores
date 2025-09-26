@@ -1,0 +1,6 @@
+class Error1 {
+    public static void main(String[] args) {
+        int x;
+        x = 10$; // '$' não é permitido
+    }
+}
