@@ -1,10 +1,10 @@
 /*
- * MiniJava.flex — Especificação JFlex para o scanner do MiniJava
+ * MiniJava.flex — Lexer baseado na EBNF fornecida
  * Objetivo: reconhecer palavras-chave, identificadores, números,
- * símbolos de pontuação e operadores da linguagem MiniJava.
+ * símbolos e operadores do MiniJava.
  */
 
-package org.uff; // gera em org/uff/MiniJavaLexer.java
+package org.uff;
 
 %%
 
@@ -53,7 +53,9 @@ Regras léxicas
 "true"        { return "TRUE"; }
 "false"       { return "FALSE"; }
 "this"        { return "THIS"; }
+"null"        { return "NULL"; }
 "new"         { return "NEW"; }
+"length"      { return "LENGTH"; }
 
 /* --- Símbolos --- */
 "("           { return "LPAREN"; }
@@ -69,24 +71,26 @@ Regras léxicas
 
 /* --- Operadores --- */
 "&&"          { return "AND"; }
+"=="          { return "EQ"; }
+"!="          { return "NEQ"; }
+"<="          { return "LEQ"; }
+">="          { return "GEQ"; }
 "<"           { return "LT"; }
+">"           { return "GT"; }
 "+"           { return "PLUS"; }
 "-"           { return "MINUS"; }
 "*"           { return "TIMES"; }
+"/"           { return "DIV"; }
 "!"           { return "NOT"; }
-"=="           { return "EQ"; }
-"!="           { return "NEQ"; }
-"<="           { return "LEQ"; }
-">="           { return "GEQ"; }
 
 /* --- Literais --- */
 {NUMBER}      { return "NUMBER(" + yytext() + ")"; }
 {IDENT}       { return "IDENT(" + yytext() + ")"; }
 
 /* --- Comentários --- */
-// comentário de linha //
+// linha
 "//".*        { /* ignora até o fim da linha */ }
-// comentário de bloco /* ... */
+// bloco
 "/*"([^*]|\*+[^*/])*\*+"/" { /* ignora bloco */ }
 
 /* --- Fim de arquivo --- */
