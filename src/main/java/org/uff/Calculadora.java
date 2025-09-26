@@ -4,19 +4,18 @@ import java.io.FileReader;
 
 /**
  * Main — programa de apoio para exercitar o scanner gerado pelo JFlex.
- * Uso: java -cp out org.uff.Main <caminho-do-arquivo-de-entrada>
- * Ex.: java -cp out org.uff.Main src/main/exemplos/teste.calc
+ * Uso: java -cp out org.uff.Calculadora <caminho-do-arquivo-de-entrada>
+ * Ex.: java -cp out org.uff.Calculadora src/main/exemplos/teste.calc
  */
-public class Main {
+public class Calculadora {
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
-            System.out.println("Uso: java org.uff.Main <arquivo.calc>");
+            System.out.println("Uso: java org.uff.Calculadora <arquivo.calc>");
             return;
         }
 
         FileReader reader = new FileReader(args[0]);
-        // CalcLexer lexer = new CalcLexer(reader); // classe gerada pelo JFlex a partir do Calc.flex
-        MiniJavaLexer lexer = new MiniJavaLexer(reader); // classe gerada pelo JFlex a partir do MiniJava.flex
+        CalcLexer lexer = new CalcLexer(reader);
 
         String token;
         while (!(token = lexer.nextToken()).equals("EOF")) {
