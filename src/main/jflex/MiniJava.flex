@@ -20,8 +20,7 @@ IntegerLiteral = 0 | [1-9][0-9]*
 // Comentários
 Comment = {TraditionalComment} | {EndOfLineComment}
 TraditionalComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
-EndOfLineComment = "//" {LineTerminator} | "//" [^{LineTerminator}]* {LineTerminator}?
-
+EndOfLineComment = "//" .* {LineTerminator}?
 %%
 
 // Ignora comentários e espaços em branco
