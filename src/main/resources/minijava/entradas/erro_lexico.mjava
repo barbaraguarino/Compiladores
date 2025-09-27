@@ -1,8 +1,8 @@
 class ErroLexico {
-    public static void main(String[] args) {
-        int a;
-        a = 10;
-        // O caractere '$' é inválido na Mini-Java
-        int b$ = 20;
+    public static void main(String[] a) {
+        int x;
+        /* O caractere '%' é léxicamente inválido na Mini-Java,
+         pois não corresponde a nenhum token conhecido. */
+        x = 10 % 5;
     }
 }
