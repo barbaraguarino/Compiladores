@@ -1,0 +1,76 @@
+<CLASS>
+<ID "Fatorial">
+<LBRACE>
+<PUBLIC>
+<STATIC>
+<VOID>
+<MAIN>
+<LPAREN>
+<STRING>
+<LBRACKET>
+<RBRACKET>
+<ID "a">
+<RPAREN>
+<LBRACE>
+<SYSTEM_OUT_PRINTLN>
+<LPAREN>
+<NEW>
+<ID "Fac">
+<LPAREN>
+<RPAREN>
+<DOT>
+<ID "ComputeFac">
+<LPAREN>
+<INTEGER_LITERAL "10">
+<RPAREN>
+<RPAREN>
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<CLASS>
+<ID "Fac">
+<LBRACE>
+<PUBLIC>
+<INT>
+<ID "ComputeFac">
+<LPAREN>
+<INT>
+<ID "num">
+<RPAREN>
+<LBRACE>
+<INT>
+<ID "num_aux">
+<SEMICOLON>
+<IF>
+<LPAREN>
+<ID "num">
+<LESS_THAN>
+<INTEGER_LITERAL "1">
+<RPAREN>
+<ID "num_aux">
+<ASSIGN>
+<INTEGER_LITERAL "1">
+<SEMICOLON>
+<ELSE>
+<ID "num_aux">
+<ASSIGN>
+<ID "num">
+<TIMES>
+<LPAREN>
+<THIS>
+<DOT>
+<ID "ComputeFac">
+<LPAREN>
+<ID "num">
+<MINUS>
+<INTEGER_LITERAL "1">
+<RPAREN>
+<RPAREN>
+<SEMICOLON>
+<RETURN>
+<ID "num_aux">
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<EOF>
+Fim da análise léxica.

@@ -1,0 +1,23 @@
+Goal      = Expressao, EOF ;
+
+Expressao = Termo, { (PLUS | MINUS), Termo } ;
+
+Termo     = Fator, { (TIMES | DIVIDE | INTEGER_DIVIDE), Fator } ;
+
+Fator     = Base, [ POWER, Fator ] ;
+
+Base      = NUMBER
+          | LPAREN, Expressao, RPAREN ;
+
+(*
+   PLUS           => "+"
+   MINUS          => "-"
+   TIMES          => "*"
+   DIVIDE         => "/"
+   INTEGER_DIVIDE => "//"
+   POWER          => "**"
+   NUMBER         => Números (inteiros ou ponto flutuante)
+   LPAREN         => "("
+   RPAREN         => ")"
+   EOF            => Fim de arquivo
+*)

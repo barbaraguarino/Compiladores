@@ -1,0 +1,8 @@
+class ErroLexico {
+    public static void main(String[] a) {
+        int x;
+        /* O caractere '%' é léxicamente inválido na Mini-Java,
+         pois não corresponde a nenhum token conhecido. */
+        x = 10 % 5;
+    }
+}

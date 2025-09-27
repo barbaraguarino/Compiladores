@@ -1,0 +1,91 @@
+<CLASS>
+<ID "BinarySearch">
+<LBRACE>
+<PUBLIC>
+<STATIC>
+<VOID>
+<MAIN>
+<LPAREN>
+<STRING>
+<LBRACKET>
+<RBRACKET>
+<ID "a">
+<RPAREN>
+<LBRACE>
+<SYSTEM_OUT_PRINTLN>
+<LPAREN>
+<NEW>
+<ID "BS">
+<LPAREN>
+<RPAREN>
+<DOT>
+<ID "Start">
+<LPAREN>
+<INTEGER_LITERAL "20">
+<RPAREN>
+<RPAREN>
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<CLASS>
+<ID "BS">
+<LBRACE>
+<INT>
+<LBRACKET>
+<RBRACKET>
+<ID "number">
+<SEMICOLON>
+<INT>
+<ID "size">
+<SEMICOLON>
+<PUBLIC>
+<INT>
+<ID "Start">
+<LPAREN>
+<INT>
+<ID "sz">
+<RPAREN>
+<LBRACE>
+<INT>
+<ID "aux">
+<SEMICOLON>
+<ID "aux">
+<ASSIGN>
+<THIS>
+<DOT>
+<ID "Init">
+<LPAREN>
+<ID "sz">
+<RPAREN>
+<SEMICOLON>
+<RETURN>
+<INTEGER_LITERAL "0">
+<SEMICOLON>
+<RBRACE>
+<PUBLIC>
+<INT>
+<ID "Init">
+<LPAREN>
+<INT>
+<ID "sz">
+<RPAREN>
+<LBRACE>
+<ID "size">
+<ASSIGN>
+<ID "sz">
+<SEMICOLON>
+<ID "number">
+<ASSIGN>
+<NEW>
+<INT>
+<LBRACKET>
+<ID "sz">
+<RBRACKET>
+<SEMICOLON>
+<RETURN>
+<INTEGER_LITERAL "0">
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<EOF>
+Fim da análise léxica.

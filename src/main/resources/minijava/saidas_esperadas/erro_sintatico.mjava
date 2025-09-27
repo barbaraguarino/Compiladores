@@ -1,0 +1,22 @@
+<CLASS>
+<ID "ErroSintatico">
+<LBRACE>
+<PUBLIC>
+<STATIC>
+<VOID>
+<MAIN>
+<LPAREN>
+<STRING>
+<LBRACKET>
+<RBRACKET>
+<ID "args">
+<RPAREN>
+<LBRACE>
+<INT>
+<ID "a">
+<ASSIGN>
+<INTEGER_LITERAL "10">
+<RBRACE>
+<RBRACE>
+<EOF>
+Fim da análise léxica.
