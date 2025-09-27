@@ -41,55 +41,57 @@ A construção das fases iniciais de um compilador para a linguagem "Mini-Java",
 A gramática formal da Mini-Java, que define a estrutura sintática da linguagem, foi adaptada para ser consistente com os tokens gerados pelo nosso scanner.
 
 ```ebnf
-Goal         = MainClass, { ClassDecl }, EOF ;
+Goal         = MainClass { ClassDecl } EOF ;
 
-MainClass    = CLASS, ID, LBRACE,
-                 PUBLIC, STATIC, VOID, MAIN, LPAREN, STRING, LBRACKET, RBRACKET, ID, RPAREN,
-                 LBRACE, Statement, RBRACE,
+MainClass    = CLASS ID LBRACE
+                 PUBLIC STATIC VOID MAIN LPAREN STRING LBRACKET RBRACKET ID RPAREN
+                 LBRACE Statement RBRACE
                RBRACE ;
 
-ClassDecl    = CLASS, ID, [ EXTENDS, ID ], LBRACE, { VarDecl }, { MethodDecl }, RBRACE ;
+ClassDecl    = CLASS ID [ EXTENDS ID ] LBRACE { VarDecl } { MethodDecl } RBRACE ;
 
-VarDecl      = Type, ID, SEMICOLON ;
+VarDecl      = Type ID SEMICOLON ;
 
-MethodDecl   = PUBLIC, Type, ID, LPAREN, [ FormalList ], RPAREN, LBRACE,
-                 { VarDecl },
-                 { Statement },
-                 RETURN, Expression, SEMICOLON,
+MethodDecl   = PUBLIC Type ID LPAREN [ FormalList ] RPAREN LBRACE
+                 { VarDecl }
+                 { Statement }
+                 RETURN Expression SEMICOLON
                RBRACE ;
 
-FormalList   = Type, ID, { COMMA, Type, ID } ;
+FormalList   = Type ID { COMMA Type ID } ;
 
-Type         = (INT, LBRACKET, RBRACKET)
+Type         = (INT LBRACKET RBRACKET)
              | BOOLEAN
              | INT
              | ID ;
 
-Statement    = LBRACE, { Statement }, RBRACE
-             | IF, LPAREN, Expression, RPAREN, Statement, ELSE, Statement
-             | WHILE, LPAREN, Expression, RPAREN, Statement
-             | SYSTEM_OUT_PRINTLN, LPAREN, Expression, RPAREN, SEMICOLON
-             | ID, ASSIGN, Expression, SEMICOLON
-             | ID, LBRACKET, Expression, RBRACKET, ASSIGN, Expression, SEMICOLON ;
+Statement    = LBRACE { Statement } RBRACE
+             | IF LPAREN Expression RPAREN Statement ELSE Statement
+             | WHILE LPAREN Expression RPAREN Statement
+             | SYSTEM_OUT_PRINTLN LPAREN Expression RPAREN SEMICOLON
+             | ID ASSIGN Expression SEMICOLON
+             | ID LBRACKET Expression RBRACKET ASSIGN Expression SEMICOLON ;
 
 Expression   = LogicalAndExpr ;
 
-LogicalAndExpr     = RelationalExpr, { (AND | OR), RelationalExpr } ;
-RelationalExpr     = AdditiveExpr, { (LESS_THAN | GREATER_THAN | EQUAL | NOT_EQUAL | LESS_THAN_EQUAL | GREATER_THAN_EQUAL), AdditiveExpr } ;
-AdditiveExpr       = MultiplicativeExpr, { (PLUS | MINUS), MultiplicativeExpr } ;
-MultiplicativeExpr = PrimaryExpr, { (TIMES | DIVIDE), PrimaryExpr } ;
+NegationExpr       = NEGATION PrimaryExpr ;
+LogicalAndExpr     = (NegationExpr | RelationalExpr) { (AND | OR) (NegationExpr | RelationalExpr) } ;
+RelationalExpr     = (NegationExpr | AdditiveExpr) { (LESS_THAN | GREATER_THAN | EQUAL | NOT_EQUAL | LESS_THAN_EQUAL | GREATER_THAN_EQUAL) (NegationExpr | AdditiveExpr) } ;
+AdditiveExpr       = MultiplicativeExpr { (PLUS | MINUS) MultiplicativeExpr } ;
+MultiplicativeExpr = PrimaryExpr { (TIMES | DIVIDE) PrimaryExpr } ;
 
 PrimaryExpr  = INTEGER_LITERAL
              | TRUE
              | FALSE
              | ID
              | THIS
-             | (NEW, INT, LBRACKET, Expression, RBRACKET)
-             | (NEW, ID, LPAREN, RPAREN)
-             | (LPAREN, Expression, RPAREN)
-             | (PrimaryExpr, ( (DOT, LENGTH) | (LBRACKET, Expression, RBRACKET) | (DOT, ID, LPAREN, [ ExpList ], RPAREN) )) ;
+             | (NEW INT LBRACKET Expression RBRACKET)
+             | (NEW ID LPAREN RPAREN)
+             | (LPAREN Expression RPAREN)
+             | (NEGATION PrimaryExpr)
+             | (PrimaryExpr (DOT LENGTH | LBRACKET Expression RBRACKET | DOT ID LPAREN [ ExpList ] RPAREN)) ;
 
-ExpList      = Expression, { COMMA, Expression } ;
+ExpList      = Expression { COMMA Expression } ;
 ```
 
 ## Tecnologias Utilizadas
