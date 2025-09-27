@@ -1,0 +1,20 @@
+class QuickSort {
+    public static void main(String[] a){
+        System.out.println(new QS().Start(10));
+    }
+}
+
+class QS {
+    int[] number;
+    int size;
+    public int Start(int sz){
+        int aux;
+        aux = this.Init(sz);
+        return 0;
+    }
+    public int Init(int sz){
+        size = sz;
+        number = new int[sz];
+        return 0;
+    }
+}

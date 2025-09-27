@@ -1,0 +1,27 @@
+<CLASS>
+<ID "ErroLexico">
+<LBRACE>
+<PUBLIC>
+<STATIC>
+<VOID>
+<MAIN>
+<LPAREN>
+<STRING>
+<LBRACKET>
+<RBRACKET>
+<ID "a">
+<RPAREN>
+<LBRACE>
+<INT>
+<ID "x">
+<SEMICOLON>
+<ID "x">
+<ASSIGN>
+<INTEGER_LITERAL "10">
+<ERROR>
+<INTEGER_LITERAL "5">
+<SEMICOLON>
+<RBRACE>
+<RBRACE>
+<EOF>
+Fim da análise léxica.

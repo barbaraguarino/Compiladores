@@ -1,0 +1,6 @@
+NUMBER(15.5)
+PLUS
+NUMBER(4)
+Exception in thread "main" java.lang.RuntimeException: Caractere inválido: @ em linha 1, coluna 10
+	at org.uff.calculadora.CalcLexer.nextToken(CalcLexer.java:704)
+	at org.uff.calculadora.MainCalculadora.main(MainCalculadora.java:28)
