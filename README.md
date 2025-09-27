@@ -127,12 +127,12 @@ Primeiro, clone o repositório para a sua máquina local e entre na branch corre
 
 2. **Execute o Scanner da Calculadora:**
     ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/exemplos/calculadora/entradas/calc_inicial.calc
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_inicial.calc
     ```
 
 3. **Execute o Scanner da Mini-Java:**
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/exemplos/minijava/entradas/Fatorial.mjava
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
     ```
 
 ### 3. Executando pelo IntelliJ IDEA
@@ -154,13 +154,13 @@ Se você estiver usando o IntelliJ IDEA, não é necessário instalar o Apache M
     * **Para a Calculadora:**
         1.  Abra o arquivo `MainCalculadora.java`.
         2.  Clique no ícone de "Play" (▶️) ao lado do método `main` e selecione **"Modify Run Configuration..."**.
-        3.  No campo **"Program arguments"**, insira o caminho para um arquivo de teste, por exemplo: `src/main/resources/exemplos/calculadora/entradas/calc_simples.calc`.
+        3.  No campo **"Program arguments"**, insira o caminho para um arquivo de teste, por exemplo: `src/main/resources/calculadora/entradas/calc_simples.calc`.
         4.  Clique em `OK`. Agora você pode executar essa configuração pelo botão de Play no topo da tela.
 
     * **Para a Mini-Java:**
         1.  Abra o arquivo `MainMiniJava.java`.
         2.  Repita o processo: clique no "Play" (▶️) ao lado do `main` e selecione **"Modify Run Configuration..."**.
-        3.  No campo **"Program arguments"**, insira o caminho para um arquivo de teste, por exemplo: `src/main/resources/exemplos/minijava/entradas/Fatorial.mjava`.
+        3.  No campo **"Program arguments"**, insira o caminho para um arquivo de teste, por exemplo: `src/main/resources/minijava/entradas/Fatorial.mjava`.
         4.  Clique em `OK`.
 
 Para testar outros arquivos, basta editar o campo "Program arguments" na configuração correspondente ou criar novas configurações.
