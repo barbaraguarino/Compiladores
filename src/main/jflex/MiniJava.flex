@@ -53,13 +53,17 @@ EndOfLineComment = "//" .* {LineTerminator}?
 {Identifier}           { return new Symbol(Token.ID, yyline + 1, yycolumn + 1, yytext()); }
 
 // Operadores
+"&&"                   { return new Symbol(Token.AND, yyline + 1, yycolumn + 1, yytext()); }
+"<="                   { return new Symbol(Token.LESS_THAN_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
+">="                   { return new Symbol(Token.GREATER_THAN_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
+"=="                   { return new Symbol(Token.EQUAL, yyline + 1, yycolumn + 1, yytext()); }
+"!="                   { return new Symbol(Token.NOT_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
+"<"                    { return new Symbol(Token.LESS_THAN, yyline + 1, yycolumn + 1, yytext()); }
+">"                    { return new Symbol(Token.GREATER_THAN, yyline + 1, yycolumn + 1, yytext()); }
 "+"                    { return new Symbol(Token.PLUS, yyline + 1, yycolumn + 1, yytext()); }
 "-"                    { return new Symbol(Token.MINUS, yyline + 1, yycolumn + 1, yytext()); }
 "*"                    { return new Symbol(Token.TIMES, yyline + 1, yycolumn + 1, yytext()); }
 "/"                    { return new Symbol(Token.DIVIDE, yyline + 1, yycolumn + 1, yytext()); }
-"&&"                   { return new Symbol(Token.AND, yyline + 1, yycolumn + 1, yytext()); }
-"<"                    { return new Symbol(Token.LESS_THAN, yyline + 1, yycolumn + 1, yytext()); }
-"!="                   { return new Symbol(Token.NOT_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
 "="                    { return new Symbol(Token.ASSIGN, yyline + 1, yycolumn + 1, yytext()); }
 
 // Separadores
@@ -72,7 +76,6 @@ EndOfLineComment = "//" .* {LineTerminator}?
 ";"                    { return new Symbol(Token.SEMICOLON, yyline + 1, yycolumn + 1, yytext()); }
 "."                    { return new Symbol(Token.DOT, yyline + 1, yycolumn + 1, yytext()); }
 ","                    { return new Symbol(Token.COMMA, yyline + 1, yycolumn + 1, yytext()); }
-
 
 <<EOF>>                { return new Symbol(Token.EOF, yyline + 1, yycolumn + 1, "EOF"); }
 
