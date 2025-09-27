@@ -51,12 +51,12 @@ Siga as instruções abaixo para compilar e executar os scanners.
 
 3.  **Execute o Scanner da Calculadora:**
     ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/exemplos/calculadora/calc_inicial.calc
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_inicial.calc
     ```
 
 4.  **Execute o Scanner da Mini-Java:**
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/exemplos/minijava/entradas/Fatorial.mjava
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
     ```
 
 ## Autores
