@@ -54,6 +54,7 @@ EndOfLineComment = "//" .* {LineTerminator}?
 
 // Operadores
 "&&"                   { return new Symbol(Token.AND, yyline + 1, yycolumn + 1, yytext()); }
+"||"                   { return new Symbol(Token.OR, yyline + 1, yycolumn + 1, yytext()); }
 "<="                   { return new Symbol(Token.LESS_THAN_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
 ">="                   { return new Symbol(Token.GREATER_THAN_EQUAL, yyline + 1, yycolumn + 1, yytext()); }
 "=="                   { return new Symbol(Token.EQUAL, yyline + 1, yycolumn + 1, yytext()); }
