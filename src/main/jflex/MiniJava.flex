@@ -47,6 +47,7 @@ EndOfLineComment = "//" .* {LineTerminator}?
 "false"                { return new Symbol(Token.FALSE, yyline + 1, yycolumn + 1, yytext()); }
 "this"                 { return new Symbol(Token.THIS, yyline + 1, yycolumn + 1, yytext()); }
 "new"                  { return new Symbol(Token.NEW, yyline + 1, yycolumn + 1, yytext()); }
+"null"                 { return new Symbol(Token.NULL, yyline + 1, yycolumn + 1, yytext()); }
 
 // Literais e Identificadores
 {IntegerLiteral}       { return new Symbol(Token.INTEGER_LITERAL, yyline + 1, yycolumn + 1, yytext()); }
@@ -66,6 +67,7 @@ EndOfLineComment = "//" .* {LineTerminator}?
 "*"                    { return new Symbol(Token.TIMES, yyline + 1, yycolumn + 1, yytext()); }
 "/"                    { return new Symbol(Token.DIVIDE, yyline + 1, yycolumn + 1, yytext()); }
 "="                    { return new Symbol(Token.ASSIGN, yyline + 1, yycolumn + 1, yytext()); }
+"!"                    { return new Symbol(Token.NEGATION, yyline + 1, yycolumn + 1, yytext()); }
 
 // Separadores
 "("                    { return new Symbol(Token.LPAREN, yyline + 1, yycolumn + 1, yytext()); }

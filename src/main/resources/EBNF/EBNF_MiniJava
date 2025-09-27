@@ -31,8 +31,9 @@ Statement    = LBRACE { Statement } RBRACE
 
 Expression   = LogicalAndExpr ;
 
-LogicalAndExpr     = RelationalExpr { (AND | OR) RelationalExpr } ;
-RelationalExpr     = AdditiveExpr { (LESS_THAN | GREATER_THAN | EQUAL | NOT_EQUAL | LESS_THAN_EQUAL | GREATER_THAN_EQUAL) AdditiveExpr } ;
+NegationExpr       = NEGATION PrimaryExpr ;
+LogicalAndExpr     = (NegationExpr | RelationalExpr) { (AND | OR) (NegationExpr | RelationalExpr) } ;
+RelationalExpr     = (NegationExpr | AdditiveExpr) { (LESS_THAN | GREATER_THAN | EQUAL | NOT_EQUAL | LESS_THAN_EQUAL | GREATER_THAN_EQUAL) (NegationExpr | AdditiveExpr) } ;
 AdditiveExpr       = MultiplicativeExpr { (PLUS | MINUS) MultiplicativeExpr } ;
 MultiplicativeExpr = PrimaryExpr { (TIMES | DIVIDE) PrimaryExpr } ;
 
@@ -44,8 +45,7 @@ PrimaryExpr  = INTEGER_LITERAL
              | (NEW INT LBRACKET Expression RBRACKET)
              | (NEW ID LPAREN RPAREN)
              | (LPAREN Expression RPAREN)
-             | (PrimaryExpr (DOT LENGTH
-                          | LBRACKET Expression RBRACKET
-                          | DOT ID LPAREN [ ExpList ] RPAREN)) ;
+             | (NEGATION PrimaryExpr)
+             | (PrimaryExpr (DOT LENGTH | LBRACKET Expression RBRACKET | DOT ID LPAREN [ ExpList ] RPAREN)) ;
 
 ExpList      = Expression { COMMA Expression } ;
