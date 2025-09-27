@@ -74,8 +74,8 @@ Statement    = LBRACE, { Statement }, RBRACE
 
 Expression   = LogicalAndExpr ;
 
-LogicalAndExpr     = RelationalExpr, { AND, RelationalExpr } ;
-RelationalExpr     = AdditiveExpr, { (LESS_THAN | NOT_EQUAL), AdditiveExpr } ;
+LogicalAndExpr     = RelationalExpr, { (AND | OR), RelationalExpr } ;
+RelationalExpr     = AdditiveExpr, { (LESS_THAN | GREATER_THAN | EQUAL | NOT_EQUAL | LESS_THAN_EQUAL | GREATER_THAN_EQUAL), AdditiveExpr } ;
 AdditiveExpr       = MultiplicativeExpr, { (PLUS | MINUS), MultiplicativeExpr } ;
 MultiplicativeExpr = PrimaryExpr, { (TIMES | DIVIDE), PrimaryExpr } ;
 
