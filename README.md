@@ -116,7 +116,6 @@ Primeiro, clone o repositório para a sua máquina local e entre na branch corre
 ```bash
     git clone https://github.com/barbaraguarino/Compiladores.git
     cd Compiladores
-    git checkout minijava
 ```
 
 ### 2. Executando via Linha de Comando
