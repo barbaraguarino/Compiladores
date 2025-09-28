@@ -128,15 +128,50 @@ Primeiro, clone o repositório para a sua máquina local e entre na branch corre
     ```
 
 2. **Execute o Scanner da Calculadora:**
+Execute para cada caso teste na pasta de entradas
+    ```bash
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_complexa.calc
+    ```
+    ```bash
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_erro.calc
+    ```
     ```bash
     java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_inicial.calc
     ```
+    ```bash
+    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_simples.calc
+    ```
 
 3. **Execute o Scanner da Mini-Java:**
+Execute para cada caso teste na pasta de entradas
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
+    ```
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BubbleSort.mjava
+    ```
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_lexico.mjava
+    ```
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_sintatico.mjava
+    ```
     ```bash
     java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
     ```
-
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/LinearSearch.mjava
+    ```
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Main.mjava
+    ```
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/QuickSort.mjava
+    ``` 
+    ```bash
+    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/TreeVisitor.mjava
+    ```
+  
 ### 3. Executando pelo IntelliJ IDEA
 
 Se você estiver usando o IntelliJ IDEA, não é necessário instalar o Apache Maven separadamente, pois a IDE já vem com uma versão embutida e se integra perfeitamente ao projeto.
