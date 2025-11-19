@@ -73,4 +73,9 @@
 <RBRACE>
 <RBRACE>
 <EOF>
-Fim da análise léxica.
+
+RESULTADO DA ANÁLISE SINTÁTICA
+
+[SUCESSO] O código é sintaticamente válido.
+
+FIM DA ANÁLISE SINTÁTICA
