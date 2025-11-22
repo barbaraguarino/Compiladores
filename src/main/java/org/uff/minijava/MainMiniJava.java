@@ -19,6 +19,7 @@ public class MainMiniJava {
 
         try {
             Path inPath = Paths.get(inputFilePath);
+
             Path saidasDir = inPath.getParent().resolve("saidas");
             if (inPath.getParent().getFileName().toString().equals("entradas")) {
                 saidasDir = inPath.getParent().getParent().resolve("saidas");
@@ -34,16 +35,16 @@ public class MainMiniJava {
 
                 MiniJavaLexer lexerPrint = new MiniJavaLexer(new FileReader(inPath.toFile()));
                 Symbol token;
+
                 while ((token = lexerPrint.next_token()).sym != sym.EOF) {
                     String tokenName = getTokenName(token.sym);
-                    String output;
-                    if (token.value != null) {
-                        output = String.format("<%s \"%s\">", tokenName, token.value);
-                    } else {
-                        output = String.format("<%s>", tokenName);
-                    }
+                    String output = (token.value != null)
+                            ? String.format("<%s \"%s\">", tokenName, token.value)
+                            : String.format("<%s>", tokenName);
+
                     writer.println(output);
                 }
+
                 writer.println("<EOF>");
 
                 writer.println();
@@ -56,12 +57,7 @@ public class MainMiniJava {
                 MiniJavaLexer lexerParser = new MiniJavaLexer(new FileReader(inPath.toFile()));
                 MiniJavaParser parser = new MiniJavaParser(lexerParser);
 
-                parser.setErrorListener(new MiniJavaParser.ErrorListener() {
-                    @Override
-                    public void onError(String message) {
-                        writer.println("[FALHA] " + message);
-                    }
-                });
+                parser.setErrorListener(message -> writer.println("[FALHA] " + message));
 
                 try {
                     parser.parse();
@@ -81,7 +77,10 @@ public class MainMiniJava {
 
         } catch (IOException e) {
             System.err.println("Erro de I/O: " + e.getMessage());
+        } catch (Error e) {
+            System.err.println("\n[ERRO LÉXICO] " + e.getMessage());
         } catch (Exception e) {
+            System.err.println("Erro inesperado ao processar o arquivo:");
             e.printStackTrace();
         }
     }
