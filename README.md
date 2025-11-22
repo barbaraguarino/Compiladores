@@ -144,31 +144,31 @@ Execute para cada caso teste na pasta de entradas
 3. **Execute o Scanner da Mini-Java:**
 Execute para cada caso teste na pasta de entradas
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BubbleSort.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BubbleSort.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_lexico.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_lexico.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_sintatico.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_sintatico.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/LinearSearch.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/LinearSearch.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Main.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Main.mjava
     ```
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/QuickSort.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/QuickSort.mjava
     ``` 
     ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/TreeVisitor.mjava
+    java -cp target/classes:/home/carvalho/.m2/repository/com/github/vbmacher/java-cup-runtime/11b-20160615-3/java-cup-runtime-11b-20160615-3.jar org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/TreeVisitor.mjava
     ```
   
 ### 3. Executando pelo IntelliJ IDEA
