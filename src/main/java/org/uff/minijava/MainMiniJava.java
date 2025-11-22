@@ -9,12 +9,20 @@ import java.nio.file.Paths;
 
 public class MainMiniJava {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.err.println("\nUso: java org.uff.minijava.MainMiniJava <arquivo.mjava>");
+
+        String inputFilePath;
+
+        if (args.length > 0) {
+            inputFilePath = args[0];
+        } else {
+            FileSelector selector = new FileSelector();
+            inputFilePath = selector.selectFile();
+        }
+
+        if (inputFilePath == null) {
             return;
         }
 
-        String inputFilePath = args[0];
         System.out.println("\nProcessando: " + inputFilePath);
 
         try {
