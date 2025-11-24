@@ -1,0 +1,71 @@
+ANÁLISE SINTÁTICA: erro_sintatico
+
+ TRACE 
+# Initializing parser
+# Current Symbol is #2
+# Shift under term #2 to state #3
+# Current token is #45
+# Shift under term #45 to state #4
+# Current token is #22
+# Shift under term #22 to state #5
+# Current token is #3
+# Shift under term #3 to state #6
+# Current token is #4
+# Shift under term #4 to state #7
+# Current token is #5
+# Shift under term #5 to state #8
+# Current token is #6
+# Shift under term #6 to state #9
+# Current token is #24
+# Shift under term #24 to state #10
+# Current token is #7
+# Shift under term #7 to state #11
+# Current token is #26
+# Shift under term #26 to state #12
+# Current token is #27
+# Shift under term #27 to state #13
+# Current token is #45
+# Shift under term #45 to state #14
+# Current token is #25
+# Shift under term #25 to state #15
+# Current token is #22
+# Shift under term #22 to state #16
+# Current token is #10
+# Reduce with prod #21 [NT=13, SZ=0]
+# Reduce rule: top state 16, lhs sym 13 -> state 17
+# Goto state #17
+# Shift under term #10 to state #18
+# Current token is #45
+# Reduce with prod #27 [NT=16, SZ=1]
+# Reduce rule: top state 17, lhs sym 16 -> state 25
+# Goto state #25
+# Shift under term #45 to state #97
+# Current token is #31
+Erro de Sintaxe na linha 4, coluna 16 : Syntax error
+[FALHA] Erro de Sintaxe na linha 4, coluna 16 : Syntax error
+# Attempting error recovery
+# Finding recovery state on stack
+# Pop stack by one, state was # 97
+# Pop stack by one, state was # 25
+# Pop stack by one, state was # 17
+# Pop stack by one, state was # 16
+# Pop stack by one, state was # 15
+# Pop stack by one, state was # 14
+# Pop stack by one, state was # 13
+# Pop stack by one, state was # 12
+# Pop stack by one, state was # 11
+# Pop stack by one, state was # 10
+# Pop stack by one, state was # 9
+# Pop stack by one, state was # 8
+# Pop stack by one, state was # 7
+# Pop stack by one, state was # 6
+# Pop stack by one, state was # 5
+# Pop stack by one, state was # 4
+# Pop stack by one, state was # 3
+# Pop stack by one, state was # 0
+# No recovery state found on stack
+# Error recovery fails
+Erro de Sintaxe na linha 4, coluna 16 : Couldn't repair and continue parse
+[FALHA] Erro de Sintaxe na linha 4, coluna 16 : Couldn't repair and continue parse
+
+[ERRO FATAL] Erro Fatal de Sintaxe: Couldn't repair and continue parse
