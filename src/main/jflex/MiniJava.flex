@@ -11,7 +11,7 @@ import java_cup.runtime.Symbol;
 
 %{
     /*
-       Cria um novo java_cup.runtime.Symbol com informações de localização.
+       Cria um novo Symbol com informações de localização.
        O CUP usa isso para reportar erros com precisão no Parser.
     */
     private Symbol symbol(int type) {

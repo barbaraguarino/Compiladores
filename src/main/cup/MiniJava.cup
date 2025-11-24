@@ -86,7 +86,7 @@ non terminal StatementStartingWithID;
 
 /* PRECEDÊNCIA */
 
-/* Definição da precedência da menor para a maior para evitar conflitos na avaliação de expressões */
+/* Definição da precedência da menor para a maior */
 precedence right ASSIGN;
 precedence left OR;
 precedence left AND;
@@ -96,6 +96,7 @@ precedence left PLUS, MINUS;
 precedence left TIMES, DIVIDE;
 precedence right NEGATION;
 precedence left DOT, LBRACKET;
+precedence right ELSE;
 
 /* REGRAS DA GRAMÁTICA */
 
@@ -208,6 +209,7 @@ Expression ::= Expression AND Expression
              | INTEGER_LITERAL
              | TRUE
              | FALSE
+             | NULL
              | ID
              | THIS
              | NEW INT LBRACKET Expression RBRACKET

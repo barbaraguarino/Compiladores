@@ -3,106 +3,87 @@ package org.uff.minijava;
 import java_cup.runtime.Symbol;
 import java.io.*;
 import java.lang.reflect.Field;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 public class MainMiniJava {
     public static void main(String[] args) {
+        String input = (args.length > 0) ? args[0] : new FileSelector().selectFile();
+        if (input == null) return;
 
-        String inputFilePath;
-
-        if (args.length > 0) {
-            inputFilePath = args[0];
-        } else {
-            FileSelector selector = new FileSelector();
-            inputFilePath = selector.selectFile();
-        }
-
-        if (inputFilePath == null) {
-            return;
-        }
-
-        System.out.println("\nProcessando: " + inputFilePath);
+        Path inPath = Paths.get(input).toAbsolutePath();
+        System.out.println("PROCESSANDO: " + inPath.getFileName());
 
         try {
-            Path inPath = Paths.get(inputFilePath);
+            Path base = inPath.getParent();
+            if (base.endsWith("entradas")) base = base.getParent();
 
-            Path saidasDir = inPath.getParent().resolve("saidas");
-            if (inPath.getParent().getFileName().toString().equals("entradas")) {
-                saidasDir = inPath.getParent().getParent().resolve("saidas");
-            }
-            Files.createDirectories(saidasDir);
+            Path dirTokens = base.resolve("saidas/tokens");
+            Path dirTree   = base.resolve("saidas/arvores");
+            Files.createDirectories(dirTokens);
+            Files.createDirectories(dirTree);
 
-            Path outPath = saidasDir.resolve(inPath.getFileName());
+            String name = inPath.getFileName().toString().replace(".mjava", "");
 
-            try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outPath))) {
+            System.out.print("1. Tokens... ");
+            Path tokenFile = dirTokens.resolve(name + "_tokens.txt");
 
-                /* Scanner */
-                System.out.println("\nGerando tokens...");
-
-                MiniJavaLexer lexerPrint = new MiniJavaLexer(new FileReader(inPath.toFile()));
-                Symbol token;
-
-                while ((token = lexerPrint.next_token()).sym != sym.EOF) {
-                    String tokenName = getTokenName(token.sym);
-                    String output = (token.value != null)
-                            ? String.format("<%s \"%s\">", tokenName, token.value)
-                            : String.format("<%s>", tokenName);
-
-                    writer.println(output);
+            try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(tokenFile))) {
+                MiniJavaLexer lexer = new MiniJavaLexer(new FileReader(inPath.toFile()));
+                Symbol s;
+                while ((s = lexer.next_token()).sym != sym.EOF) {
+                    pw.println(s.value != null ? "<" + getName(s.sym) + " \"" + s.value + "\">" : "<" + getName(s.sym) + ">");
                 }
+                pw.println("<EOF>");
+                System.out.println("OK");
+                System.out.println("   -> " + tokenFile);
+            } catch (Error e) {
+                System.out.println("FALHA");
+                System.out.println("   [ERRO LÉXICO] " + e.getMessage());
+                return;
+            } catch (Exception e) {
+                System.out.println("FALHA: " + e.getMessage());
+                return;
+            }
 
-                writer.println("<EOF>");
+            System.out.print("2. Árvore... ");
+            Path treeFile = dirTree.resolve(name + "_arvore.txt");
 
-                writer.println();
-                writer.println("RESULTADO DA ANÁLISE SINTÁTICA");
-                writer.println();
+            try (PrintStream ps = new PrintStream(Files.newOutputStream(treeFile), true, "UTF-8")) {
+                ps.println("ANÁLISE SINTÁTICA: " + name + "\n\n TRACE ");
 
-                /* Passer */
-                System.out.println("\nExecutando Parser...");
+                MiniJavaParser parser = new MiniJavaParser(new MiniJavaLexer(new FileReader(inPath.toFile())));
 
-                MiniJavaLexer lexerParser = new MiniJavaLexer(new FileReader(inPath.toFile()));
-                MiniJavaParser parser = new MiniJavaParser(lexerParser);
+                parser.setErrorListener(msg -> {
+                    ps.println("[FALHA] " + msg );
+                    System.out.println("\n   [ERRO SINTÁTICO] " + msg);
+                });
 
-                parser.setErrorListener(message -> writer.println("[FALHA] " + message));
-
+                PrintStream console = System.err;
+                System.setErr(ps);
                 try {
-                    parser.parse();
-                    writer.println("[SUCESSO] O código é sintaticamente válido.");
-                    System.out.println("Sucesso!");
+                    parser.debug_parse();
+                    System.setErr(console);
+                    System.out.println("OK");
+                    ps.println("\n FIM \n[SUCESSO] Código Válido.");
                 } catch (Exception e) {
-                    writer.println("[ERRO FATAL] A análise foi interrompida.");
-                    System.err.println("A análise parou devido a erros.");
+                    System.setErr(console);
+                    System.out.println("FALHA");
+                    ps.println("\n[ERRO FATAL] " + e.getMessage());
                 }
-
-                writer.println();
-                writer.println("FIM DA ANÁLISE SINTÁTICA");
-
+                System.out.println("   -> " + treeFile);
             }
 
-            System.out.println("\nArquivo de saída gerado em: " + outPath.toAbsolutePath());
-
-        } catch (IOException e) {
-            System.err.println("Erro de I/O: " + e.getMessage());
-        } catch (Error e) {
-            System.err.println("\n[ERRO LÉXICO] " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Erro inesperado ao processar o arquivo:");
             e.printStackTrace();
         }
     }
 
-    private static String getTokenName(int id) {
+    private static String getName(int id) {
         try {
-            for (Field field : sym.class.getFields()) {
-                if (field.getType() == int.class && field.getInt(null) == id) {
-                    return field.getName();
-                }
-            }
-        } catch (Exception e) {
-            return "UNKNOWN";
-        }
+            for (Field f : sym.class.getFields())
+                if (f.getType() == int.class && f.getInt(null) == id)
+                    return f.getName();
+        } catch (Exception ignored) {}
         return "UNKNOWN";
     }
 }
