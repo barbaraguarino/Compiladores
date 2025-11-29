@@ -39,13 +39,13 @@ ANÁLISE SINTÁTICA: erro_sintatico
 # Reduce with prod #27 [NT=16, SZ=1]
 # Reduce rule: top state 17, lhs sym 16 -> state 25
 # Goto state #25
-# Shift under term #45 to state #97
+# Shift under term #45 to state #98
 # Current token is #31
 Erro de Sintaxe na linha 4, coluna 16 : Syntax error
 [FALHA] Erro de Sintaxe na linha 4, coluna 16 : Syntax error
 # Attempting error recovery
 # Finding recovery state on stack
-# Pop stack by one, state was # 97
+# Pop stack by one, state was # 98
 # Pop stack by one, state was # 25
 # Pop stack by one, state was # 17
 # Pop stack by one, state was # 16

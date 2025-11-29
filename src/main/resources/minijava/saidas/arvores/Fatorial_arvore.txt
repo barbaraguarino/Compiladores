@@ -1,4 +1,4 @@
-ANÁLISE SINTÁTICA: BinarySearch
+ANÁLISE SINTÁTICA: Fatorial
 
  TRACE 
 # Initializing parser
@@ -96,42 +96,8 @@ ANÁLISE SINTÁTICA: BinarySearch
 # Shift under term #45 to state #132
 # Current token is #22
 # Shift under term #22 to state #133
-# Current token is #10
-# Reduce with prod #8 [NT=10, SZ=0]
-# Reduce rule: top state 133, lhs sym 10 -> state 174
-# Goto state #174
-# Shift under term #10 to state #143
-# Current token is #26
-# Shift under term #26 to state #144
-# Current token is #27
-# Shift under term #27 to state #145
-# Current token is #45
-# Reduce with prod #16 [NT=6, SZ=3]
-# Reduce rule: top state 174, lhs sym 6 -> state 139
-# Goto state #139
-# Shift under term #45 to state #172
-# Current token is #28
-# Shift under term #28 to state #173
-# Current token is #10
-# Reduce with prod #11 [NT=3, SZ=3]
-# Reduce rule: top state 174, lhs sym 3 -> state 141
-# Goto state #141
-# Reduce with prod #7 [NT=10, SZ=2]
-# Reduce rule: top state 133, lhs sym 10 -> state 174
-# Goto state #174
-# Shift under term #10 to state #143
-# Current token is #45
-# Reduce with prod #18 [NT=6, SZ=1]
-# Reduce rule: top state 174, lhs sym 6 -> state 139
-# Goto state #139
-# Shift under term #45 to state #172
-# Current token is #28
-# Shift under term #28 to state #173
 # Current token is #3
-# Reduce with prod #11 [NT=3, SZ=3]
-# Reduce rule: top state 174, lhs sym 3 -> state 141
-# Goto state #141
-# Reduce with prod #7 [NT=10, SZ=2]
+# Reduce with prod #8 [NT=10, SZ=0]
 # Reduce rule: top state 133, lhs sym 10 -> state 174
 # Goto state #174
 # Reduce with prod #10 [NT=11, SZ=0]
@@ -173,22 +139,68 @@ ANÁLISE SINTÁTICA: BinarySearch
 # Shift under term #45 to state #98
 # Current token is #28
 # Shift under term #28 to state #99
-# Current token is #45
+# Current token is #12
 # Reduce with prod #22 [NT=14, SZ=3]
 # Reduce rule: top state 165, lhs sym 14 -> state 23
 # Goto state #23
 # Reduce with prod #20 [NT=13, SZ=2]
 # Reduce rule: top state 164, lhs sym 13 -> state 165
 # Goto state #165
-# Shift under term #45 to state #27
+# Shift under term #12 to state #24
+# Current token is #24
+# Shift under term #24 to state #100
+# Current token is #45
+# Shift under term #45 to state #40
+# Current token is #37
+# Reduce with prod #58 [NT=8, SZ=1]
+# Reduce rule: top state 100, lhs sym 8 -> state 101
+# Goto state #101
+# Shift under term #37 to state #50
+# Current token is #46
+# Shift under term #46 to state #43
+# Current token is #25
+# Reduce with prod #54 [NT=8, SZ=1]
+# Reduce rule: top state 50, lhs sym 8 -> state 77
+# Goto state #77
+# Reduce with prod #40 [NT=8, SZ=3]
+# Reduce rule: top state 100, lhs sym 8 -> state 101
+# Goto state #101
+# Shift under term #25 to state #102
+# Current token is #45
+# Shift under term #45 to state #103
 # Current token is #31
-# Shift under term #31 to state #33
+# Shift under term #31 to state #109
+# Current token is #46
+# Shift under term #46 to state #43
+# Current token is #28
+# Reduce with prod #54 [NT=8, SZ=1]
+# Reduce rule: top state 109, lhs sym 8 -> state 110
+# Goto state #110
+# Shift under term #28 to state #111
+# Current token is #13
+# Reduce with prod #36 [NT=7, SZ=4]
+# Reduce rule: top state 102, lhs sym 7 -> state 105
+# Goto state #105
+# Shift under term #13 to state #106
+# Current token is #45
+# Shift under term #45 to state #103
+# Current token is #31
+# Shift under term #31 to state #109
+# Current token is #45
+# Shift under term #45 to state #40
+# Current token is #43
+# Reduce with prod #58 [NT=8, SZ=1]
+# Reduce rule: top state 109, lhs sym 8 -> state 110
+# Goto state #110
+# Shift under term #43 to state #55
+# Current token is #24
+# Shift under term #24 to state #42
 # Current token is #19
 # Shift under term #19 to state #41
 # Current token is #29
 # Reduce with prod #59 [NT=8, SZ=1]
-# Reduce rule: top state 33, lhs sym 8 -> state 38
-# Goto state #38
+# Reduce rule: top state 42, lhs sym 8 -> state 44
+# Goto state #44
 # Shift under term #29 to state #52
 # Current token is #45
 # Shift under term #45 to state #67
@@ -196,130 +208,55 @@ ANÁLISE SINTÁTICA: BinarySearch
 # Shift under term #24 to state #69
 # Current token is #45
 # Shift under term #45 to state #40
-# Current token is #25
+# Current token is #42
 # Reduce with prod #58 [NT=8, SZ=1]
+# Reduce rule: top state 69, lhs sym 8 -> state 70
+# Goto state #70
+# Shift under term #42 to state #46
+# Current token is #46
+# Shift under term #46 to state #43
+# Current token is #25
+# Reduce with prod #54 [NT=8, SZ=1]
+# Reduce rule: top state 46, lhs sym 8 -> state 81
+# Goto state #81
+# Reduce with prod #47 [NT=8, SZ=3]
 # Reduce rule: top state 69, lhs sym 8 -> state 70
 # Goto state #70
 # Reduce with prod #64 [NT=12, SZ=1]
 # Reduce rule: top state 69, lhs sym 12 -> state 71
 # Goto state #71
 # Shift under term #25 to state #74
-# Current token is #28
-# Reduce with prod #52 [NT=8, SZ=6]
-# Reduce rule: top state 33, lhs sym 8 -> state 38
-# Goto state #38
-# Shift under term #28 to state #83
-# Current token is #9
-# Reduce with prod #33 [NT=17, SZ=4]
-# Reduce rule: top state 165, lhs sym 17 -> state 28
-# Goto state #28
-# Reduce with prod #24 [NT=14, SZ=1]
-# Reduce rule: top state 165, lhs sym 14 -> state 23
-# Goto state #23
-# Reduce with prod #20 [NT=13, SZ=2]
-# Reduce rule: top state 164, lhs sym 13 -> state 165
-# Goto state #165
-# Shift under term #9 to state #166
-# Current token is #46
-# Shift under term #46 to state #43
-# Current token is #28
-# Reduce with prod #54 [NT=8, SZ=1]
-# Reduce rule: top state 166, lhs sym 8 -> state 167
-# Goto state #167
-# Shift under term #28 to state #168
-# Current token is #23
-# Shift under term #23 to state #169
-# Current token is #3
-# Reduce with prod #12 [NT=4, SZ=12]
-# Reduce rule: top state 175, lhs sym 4 -> state 147
-# Goto state #147
-# Reduce with prod #9 [NT=11, SZ=2]
-# Reduce rule: top state 174, lhs sym 11 -> state 175
-# Goto state #175
-# Shift under term #3 to state #148
-# Current token is #10
-# Shift under term #10 to state #143
-# Current token is #45
-# Reduce with prod #18 [NT=6, SZ=1]
-# Reduce rule: top state 148, lhs sym 6 -> state 149
-# Goto state #149
-# Shift under term #45 to state #150
-# Current token is #24
-# Shift under term #24 to state #151
-# Current token is #10
-# Shift under term #10 to state #143
-# Current token is #45
-# Reduce with prod #18 [NT=6, SZ=1]
-# Reduce rule: top state 151, lhs sym 6 -> state 154
-# Goto state #154
-# Shift under term #45 to state #155
 # Current token is #25
-# Reduce with prod #14 [NT=5, SZ=2]
-# Reduce rule: top state 151, lhs sym 5 -> state 152
-# Goto state #152
-# Shift under term #25 to state #163
-# Current token is #22
-# Shift under term #22 to state #164
-# Current token is #45
-# Reduce with prod #21 [NT=13, SZ=0]
-# Reduce rule: top state 164, lhs sym 13 -> state 165
-# Goto state #165
-# Shift under term #45 to state #27
-# Current token is #31
-# Shift under term #31 to state #33
-# Current token is #45
-# Shift under term #45 to state #40
+# Reduce with prod #52 [NT=8, SZ=6]
+# Reduce rule: top state 42, lhs sym 8 -> state 44
+# Goto state #44
+# Shift under term #25 to state #54
 # Current token is #28
-# Reduce with prod #58 [NT=8, SZ=1]
-# Reduce rule: top state 33, lhs sym 8 -> state 38
-# Goto state #38
-# Shift under term #28 to state #83
-# Current token is #45
-# Reduce with prod #33 [NT=17, SZ=4]
-# Reduce rule: top state 165, lhs sym 17 -> state 28
-# Goto state #28
-# Reduce with prod #24 [NT=14, SZ=1]
-# Reduce rule: top state 165, lhs sym 14 -> state 23
-# Goto state #23
-# Reduce with prod #20 [NT=13, SZ=2]
-# Reduce rule: top state 164, lhs sym 13 -> state 165
-# Goto state #165
-# Shift under term #45 to state #27
-# Current token is #31
-# Shift under term #31 to state #33
-# Current token is #20
-# Shift under term #20 to state #34
-# Current token is #10
-# Shift under term #10 to state #86
-# Current token is #26
-# Shift under term #26 to state #87
-# Current token is #45
-# Shift under term #45 to state #40
-# Current token is #27
-# Reduce with prod #58 [NT=8, SZ=1]
-# Reduce rule: top state 87, lhs sym 8 -> state 88
-# Goto state #88
-# Shift under term #27 to state #89
-# Current token is #28
-# Reduce with prod #60 [NT=8, SZ=5]
-# Reduce rule: top state 33, lhs sym 8 -> state 38
-# Goto state #38
-# Shift under term #28 to state #83
+# Reduce with prod #63 [NT=8, SZ=3]
+# Reduce rule: top state 55, lhs sym 8 -> state 65
+# Goto state #65
+# Reduce with prod #48 [NT=8, SZ=3]
+# Reduce rule: top state 109, lhs sym 8 -> state 110
+# Goto state #110
+# Shift under term #28 to state #111
 # Current token is #9
-# Reduce with prod #33 [NT=17, SZ=4]
-# Reduce rule: top state 165, lhs sym 17 -> state 28
-# Goto state #28
-# Reduce with prod #24 [NT=14, SZ=1]
+# Reduce with prod #36 [NT=7, SZ=4]
+# Reduce rule: top state 106, lhs sym 7 -> state 107
+# Goto state #107
+# Reduce with prod #29 [NT=15, SZ=7]
+# Reduce rule: top state 165, lhs sym 15 -> state 26
+# Goto state #26
+# Reduce with prod #23 [NT=14, SZ=1]
 # Reduce rule: top state 165, lhs sym 14 -> state 23
 # Goto state #23
 # Reduce with prod #20 [NT=13, SZ=2]
 # Reduce rule: top state 164, lhs sym 13 -> state 165
 # Goto state #165
 # Shift under term #9 to state #166
-# Current token is #46
-# Shift under term #46 to state #43
+# Current token is #45
+# Shift under term #45 to state #40
 # Current token is #28
-# Reduce with prod #54 [NT=8, SZ=1]
+# Reduce with prod #58 [NT=8, SZ=1]
 # Reduce rule: top state 166, lhs sym 8 -> state 167
 # Goto state #167
 # Shift under term #28 to state #168

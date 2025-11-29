@@ -1,4 +1,4 @@
-ANÁLISE SINTÁTICA: BinarySearch
+ANÁLISE SINTÁTICA: QuickSort
 
  TRACE 
 # Initializing parser

@@ -1,0 +1,25 @@
+ANÁLISE SINTÁTICA: Publc
+
+ TRACE 
+# Initializing parser
+# Current Symbol is #2
+# Shift under term #2 to state #3
+# Current token is #45
+# Shift under term #45 to state #4
+# Current token is #22
+# Shift under term #22 to state #5
+# Current token is #45
+Erro de Sintaxe na linha 3, coluna 6 : Syntax error
+[FALHA] Erro de Sintaxe na linha 3, coluna 6 : Syntax error
+# Attempting error recovery
+# Finding recovery state on stack
+# Pop stack by one, state was # 5
+# Pop stack by one, state was # 4
+# Pop stack by one, state was # 3
+# Pop stack by one, state was # 0
+# No recovery state found on stack
+# Error recovery fails
+Erro de Sintaxe na linha 3, coluna 6 : Couldn't repair and continue parse
+[FALHA] Erro de Sintaxe na linha 3, coluna 6 : Couldn't repair and continue parse
+
+[ERRO FATAL] Erro Fatal de Sintaxe: Couldn't repair and continue parse
