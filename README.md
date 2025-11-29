@@ -1,7 +1,7 @@
 # Projetos de Compiladores
 
 Repositório destinado ao desenvolvimento dos projetos da disciplina de Compiladores. 
-O objetivo é aplicar os conceitos teóricos da construção de compiladores na prática, utilizando a linguagem Java e a ferramenta JFlex para a análise léxica.
+O objetivo é aplicar os conceitos teóricos da construção de compiladores na prática, utilizando a linguagem Java e a ferramenta JFlex para a análise léxica e Java CUP para análise sintática.
 
 ## Conteúdo
 
