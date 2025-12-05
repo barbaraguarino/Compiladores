@@ -18,10 +18,3 @@
 <ID "x">
 <ASSIGN>
 <INTEGER_LITERAL "10">
-<ERROR>
-<INTEGER_LITERAL "5">
-<SEMICOLON>
-<RBRACE>
-<RBRACE>
-<EOF>
-Fim da análise léxica.

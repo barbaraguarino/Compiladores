@@ -51,4 +51,3 @@
 <LBRACE>
 <RBRACE>
 <EOF>
-Fim da análise léxica.

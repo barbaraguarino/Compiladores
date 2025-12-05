@@ -1,7 +1,7 @@
 # Projetos de Compiladores
 
 Repositório destinado ao desenvolvimento dos projetos da disciplina de Compiladores. 
-O objetivo é aplicar os conceitos teóricos da construção de compiladores na prática, utilizando a linguagem Java e a ferramenta JFlex para a análise léxica.
+O objetivo é aplicar os conceitos teóricos da construção de compiladores na prática, utilizando a linguagem Java e a ferramenta JFlex para a análise léxica e Java CUP para análise sintática.
 
 ## Conteúdo
 
@@ -31,10 +31,14 @@ Base      = NUMBER
 ```
 
 ### Parte 2: Compilador para Mini-Java
-A construção das fases iniciais de um compilador para a linguagem "Mini-Java", um subconjunto simplificado da linguagem Java. As fases a serem implementadas incluem:
-1.  **Analisador Léxico:** Reconhecimento dos tokens da linguagem (palavras-chave, identificadores, números, símbolos, etc.).
-2.  **Analisador Sintático:** Verificação da estrutura gramatical do código.
-3.  **Analisador Semântico:** Verificação de tipos e outras regras de significado.
+Implementação das fases de análise léxica e sintática de um compilador para a linguagem "Mini-Java", um subconjunto simplificado de Java.
+
+O projeto abrange:
+1.  **Analisador Léxico (Scanner):** Reconhecimento de tokens (palavras-chave, identificadores, literais) gerado via **JFlex**.
+2.  **Analisador Sintático (Parser):** Verificação da estrutura gramatical e geração da árvore de derivação (trace) utilizando **Java CUP**.
+3.  **Interface Interativa:** Seletor de arquivos via terminal para facilitar os testes.
+4.  **Tratamento de Erros:** Reporte detalhado de erros léxicos e sintáticos (linha e coluna).
+
 
 #### Gramática [EBNF da Mini-Java](src/main/resources/EBNF/EBNF_MiniJava)
 
@@ -97,9 +101,10 @@ ExpList      = Expression { COMMA Expression } ;
 ## Tecnologias Utilizadas
 
 * **Linguagem:** [Java](https://www.java.com/) (JDK 21)
-* **Geração de Scanner:** [JFlex](https://jflex.de/)
+* **Análise Léxica:** [JFlex](https://jflex.de/)
+* **Análise Sintática:** [Java CUP](http://www2.cs.tum.edu/projects/cup/)
 * **Gerenciamento de Dependências:** [Maven](https://maven.apache.org/)
-* **IDEA:** [IntelliJ](https://www.jetbrains.com/idea/)
+* **IDE:** [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 ## Como Executar o Projeto
 
@@ -110,7 +115,7 @@ Siga as instruções abaixo para compilar e executar os scanners.
 -   [JDK (Java Development Kit)](https://www.oracle.com/java/technologies/downloads/) - Versão 21 ou superior.
 -   [Apache Maven](https://maven.apache.org/download.cgi) - Apenas para execução via linha de comando. Não é necessário instalar separadamente se for usar o IntelliJ IDEA.
 
-### 1. Instalação (Clone do Repositório)
+### Instalação (Clone do Repositório)
 
 Primeiro, clone o repositório para a sua máquina local e entre na branch correta:
 ```bash
@@ -118,60 +123,66 @@ Primeiro, clone o repositório para a sua máquina local e entre na branch corre
     cd Compiladores
 ```
 
-### 2. Executando via Linha de Comando
+### Executando via Linha de Comando
 
-1. **Compile o projeto com Maven:**
-    Este comando irá invocar o JFlex para gerar as classes `CalcLexer.java` e `MiniJavaLexer.java` e, em seguida, compilar todo o código-fonte.
-    ```bash
-    mvn clean compile
-    ```
+**Compile o projeto com Maven:**
 
-2. **Execute o Scanner da Calculadora:**
+Este comando irá invocar o JFlex para gerar as classes `CalcLexer.java` e `MiniJavaLexer.java` e, em seguida, compilar todo o código-fonte.
+```bash
+  mvn clean package -DskipTests
+```
+
+#### **Execute o Scanner da Calculadora:**
 Execute para cada caso teste na pasta de entradas
-    ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_complexa.calc
-    ```
-    ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_erro.calc
-    ```
-    ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_inicial.calc
-    ```
-    ```bash
-    java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_simples.calc
-    ```
 
-3. **Execute o Scanner da Mini-Java:**
-Execute para cada caso teste na pasta de entradas
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BubbleSort.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_lexico.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/erro_sintatico.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Fatorial.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/LinearSearch.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/Main.mjava
-    ```
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/QuickSort.mjava
-    ``` 
-    ```bash
-    java -cp target/classes org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/TreeVisitor.mjava
-    ```
-  
-### 3. Executando pelo IntelliJ IDEA
+```bash
+  java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_complexa.calc
+```
+
+```bash
+  java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_erro.calc
+```
+
+```bash
+  java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_inicial.calc
+```
+
+```bash
+  java -cp target/classes org.uff.calculadora.MainCalculadora src/main/resources/calculadora/entradas/calc_simples.calc
+```
+
+#### Executando o Compilador da Mini-Java
+
+O `MainMiniJava` realiza a análise léxica e sintática. Ao executar, o programa gera automaticamente dois arquivos de saída para cada entrada, organizados na pasta `saidas`:
+- `saidas/tokens/NomeArquivo_tokens.txt`: Lista de tokens reconhecidos.
+- `saidas/arvores/NomeArquivo_arvore.txt`: Trace da análise sintática ou mensagens de erro.
+
+Existem duas formas de executar:
+
+##### Opção A: Modo Interativo (Recomendado)
+Se você executar sem argumentos, o programa abrirá um menu no terminal listando os arquivos da pasta de exemplos para você escolher.
+
+```bash
+  java -cp "target/classes:target/dependency/*" org.uff.minijava.MainMiniJava
+```
+
+##### Opção B: Via Linha de Comando (Arquivo Específico)
+
+Você pode passar o caminho do arquivo diretamente como argumento.
+
+**Nota**: O comando abaixo assume que você possui o .jar do java-cup-runtime no seu repositório local Maven ou configurado no classpath. Ajuste o caminho conforme seu ambiente.
+
+```bash
+  # Sintaxe: java -cp <classpath> org.uff.minijava.MainMiniJava <caminho-do-arquivo>
+  java -cp "target/classes:target/dependency/*" org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
+```
+
+**Exemplos de testes disponíveis na pasta `entradas`:**
+
+- BinarySearch.mjava, BubbleSort.mjava, Fatorial.mjava, QuickSort.mjava, TreeVisitor.mjava, etc.
+- Testes de Erro: erro_lexico.mjava e erro_sintatico.mjava (para verificar o tratamento de exceções).
+ 
+### Executando pelo IntelliJ IDEA
 
 Se você estiver usando o IntelliJ IDEA, não é necessário instalar o Apache Maven separadamente, pois a IDE já vem com uma versão embutida e se integra perfeitamente ao projeto.
 
@@ -182,7 +193,7 @@ Se você estiver usando o IntelliJ IDEA, não é necessário instalar o Apache M
 2. **Compile e Gere os Scanners:**
     * No canto direito da IDE, abra a aba **Maven**.
     * Expanda `compiladores` > `Lifecycle`.
-    * Dê um duplo-clique em **`compile`**. Este passo executa o JFlex para gerar os arquivos `CalcLexer.java` e `MiniJavaLexer.java` e compila todo o projeto. Você só precisa fazer isso uma vez ou sempre que modificar os arquivos `.flex`.
+    * Dê um duplo-clique em **`clean`** e em seguida duplo clique em **`packeage`**. Este passo executa o JFlex para gerar os arquivos `CalcLexer.java` e `MiniJavaLexer.java` e compila todo o projeto. Você só precisa fazer isso uma vez ou sempre que modificar os arquivos `.flex` e `.cup`.
 
 3. **Execute os Arquivos de Teste:**
     Para executar os testes, você precisa criar uma "Run Configuration" para cada `main`.

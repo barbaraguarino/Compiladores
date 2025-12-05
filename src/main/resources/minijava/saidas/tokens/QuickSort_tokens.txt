@@ -1,5 +1,5 @@
 <CLASS>
-<ID "LinearSearch">
+<ID "QuickSort">
 <LBRACE>
 <PUBLIC>
 <STATIC>
@@ -15,7 +15,7 @@
 <SYSTEM_OUT_PRINTLN>
 <LPAREN>
 <NEW>
-<ID "LS">
+<ID "QS">
 <LPAREN>
 <RPAREN>
 <DOT>
@@ -28,8 +28,16 @@
 <RBRACE>
 <RBRACE>
 <CLASS>
-<ID "LS">
+<ID "QS">
 <LBRACE>
+<INT>
+<LBRACKET>
+<RBRACKET>
+<ID "number">
+<SEMICOLON>
+<INT>
+<ID "size">
+<SEMICOLON>
 <PUBLIC>
 <INT>
 <ID "Start">
@@ -38,35 +46,45 @@
 <ID "sz">
 <RPAREN>
 <LBRACE>
-<IF>
+<INT>
+<ID "aux">
+<SEMICOLON>
+<ID "aux">
+<ASSIGN>
+<THIS>
+<DOT>
+<ID "Init">
 <LPAREN>
-<TRUE>
-<AND>
-<LPAREN>
-<INTEGER_LITERAL "1">
-<LESS_THAN>
-<INTEGER_LITERAL "2">
-<RPAREN>
-<RPAREN>
-<LBRACE>
-<SYSTEM_OUT_PRINTLN>
-<LPAREN>
-<INTEGER_LITERAL "1">
+<ID "sz">
 <RPAREN>
 <SEMICOLON>
-<RBRACE>
-<ELSE>
-<LBRACE>
-<SYSTEM_OUT_PRINTLN>
-<LPAREN>
+<RETURN>
 <INTEGER_LITERAL "0">
-<RPAREN>
 <SEMICOLON>
 <RBRACE>
+<PUBLIC>
+<INT>
+<ID "Init">
+<LPAREN>
+<INT>
+<ID "sz">
+<RPAREN>
+<LBRACE>
+<ID "size">
+<ASSIGN>
+<ID "sz">
+<SEMICOLON>
+<ID "number">
+<ASSIGN>
+<NEW>
+<INT>
+<LBRACKET>
+<ID "sz">
+<RBRACKET>
+<SEMICOLON>
 <RETURN>
 <INTEGER_LITERAL "0">
 <SEMICOLON>
 <RBRACE>
 <RBRACE>
 <EOF>
-Fim da análise léxica.

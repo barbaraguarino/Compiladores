@@ -1,5 +1,5 @@
 <CLASS>
-<ID "Main">
+<ID "ErroSintatico">
 <LBRACE>
 <PUBLIC>
 <STATIC>
@@ -12,14 +12,10 @@
 <ID "args">
 <RPAREN>
 <LBRACE>
-<SYSTEM_OUT_PRINTLN>
-<LPAREN>
-<INTEGER_LITERAL "1">
-<PLUS>
-<INTEGER_LITERAL "2">
-<RPAREN>
-<SEMICOLON>
+<INT>
+<ID "a">
+<ASSIGN>
+<INTEGER_LITERAL "10">
 <RBRACE>
 <RBRACE>
 <EOF>
-Fim da análise léxica.

@@ -1,0 +1,224 @@
+package org.uff.minijava;
+
+import java_cup.runtime.*;
+import java.util.*;
+
+/* Configuração do Parser:
+ * Definição de como os erros serão informados para o usuário.
+ * Sobrescreve o método padrão para exibir linha e coluna.
+ */
+parser code {:
+    public interface ErrorListener {
+        void onError(String message);
+    }
+
+    private ErrorListener errorListener;
+
+    public void setErrorListener(ErrorListener listener) {
+        this.errorListener = listener;
+    }
+
+    public void report_error(String message, Object info) {
+        StringBuilder m = new StringBuilder("Erro de Sintaxe");
+
+        if (info instanceof java_cup.runtime.Symbol) {
+            java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+            if (s.left >= 0) {
+                m.append(" na linha " + (s.left+1));
+                if (s.right >= 0)
+                    m.append(", coluna " + (s.right+1));
+            }
+        }
+        m.append(" : " + message);
+
+        System.err.println(m);
+
+        if (errorListener != null) {
+            errorListener.onError(m.toString());
+        }
+    }
+
+    public void report_fatal_error(String message, Object info) {
+        report_error(message, info);
+        throw new RuntimeException("Erro Fatal de Sintaxe: " + message);
+    }
+:};
+
+/* DEFINIÇÃO DE TERMINAIS */
+
+/* Palavras-chave e Tipos Primitivos */
+terminal CLASS, PUBLIC, STATIC, VOID, MAIN, STRING, EXTENDS, RETURN;
+terminal INT, BOOLEAN, IF, ELSE, WHILE, SYSTEM_OUT_PRINTLN, LENGTH;
+terminal TRUE, FALSE, THIS, NEW, NULL;
+
+/* Símbolos de Pontuação e Agrupamento */
+terminal LBRACE, RBRACE, LPAREN, RPAREN, LBRACKET, RBRACKET;
+terminal SEMICOLON, DOT, COMMA;
+
+/* Operadores Lógicos e Aritméticos */
+terminal ASSIGN, NEGATION;
+terminal AND, OR;
+terminal EQUAL, NOT_EQUAL;
+terminal LESS_THAN, GREATER_THAN, LESS_THAN_EQUAL, GREATER_THAN_EQUAL;
+terminal PLUS, MINUS, TIMES, DIVIDE;
+
+/* Identificadores e Literais */
+terminal String ID;
+terminal Integer INTEGER_LITERAL;
+
+/* DEFINIÇÃO DE NÃO-TERMINAIS */
+
+/* Estrutura Geral */
+non terminal Goal, MainClass, ClassDecl;
+non terminal VarDecl, MethodDecl, FormalList;
+non terminal Type;
+
+/* Comandos e Expressões */
+non terminal Statement, Expression;
+
+/* Listas Auxiliares */
+non terminal ClassDeclList, VarDeclList, MethodDeclList;
+non terminal ExpList;
+
+/* Auxiliares para Resolução de Ambiguidade */
+non terminal MethodBody, MethodStatement, StatementNotID, TypeNotID;
+non terminal StatementStartingWithID;
+
+/* PRECEDÊNCIA */
+
+/* Definição da precedência da menor para a maior */
+precedence right ASSIGN;
+precedence left OR;
+precedence left AND;
+precedence left EQUAL, NOT_EQUAL;
+precedence left LESS_THAN, GREATER_THAN, LESS_THAN_EQUAL, GREATER_THAN_EQUAL;
+precedence left PLUS, MINUS;
+precedence left TIMES, DIVIDE;
+precedence right NEGATION;
+precedence left DOT, LBRACKET;
+precedence right ELSE;
+
+/* REGRAS DA GRAMÁTICA */
+
+start with Goal;
+
+/* Estrutura Principal */
+
+Goal ::= MainClass ClassDeclList;
+
+/* Lista de classes */
+ClassDeclList ::= ClassDeclList ClassDecl
+                | /* vazio */
+                ;
+
+MainClass ::= CLASS ID LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LBRACKET RBRACKET ID RPAREN LBRACE MethodBody RBRACE RBRACE;
+
+ClassDecl ::= CLASS ID LBRACE VarDeclList MethodDeclList RBRACE
+            | CLASS ID EXTENDS ID LBRACE VarDeclList MethodDeclList RBRACE
+            ;
+
+/* Listas de Declarações */
+
+VarDeclList ::= VarDeclList VarDecl
+              | /* vazio */
+              ;
+
+MethodDeclList ::= MethodDeclList MethodDecl
+                 | /* vazio */
+                 ;
+
+VarDecl ::= Type ID SEMICOLON;
+
+MethodDecl ::= PUBLIC Type ID LPAREN FormalList RPAREN LBRACE MethodBody RETURN Expression SEMICOLON RBRACE
+             | PUBLIC Type ID LPAREN RPAREN LBRACE MethodBody RETURN Expression SEMICOLON RBRACE
+             ;
+
+/* Parâmetros de Método - Recursão à esquerda para evitar conflitos */
+FormalList ::= Type ID
+             | FormalList COMMA Type ID
+             ;
+
+Type ::= INT LBRACKET RBRACKET
+       | BOOLEAN
+       | INT
+       | ID
+       ;
+
+/* RESOLUÇÃO DE AMBIGUIDADE
+
+   O parser não sabe distinguir "Tipo ID;" de "ID = ...;" apenas olhando
+   o primeiro token, pois "Tipo" pode ser um ID (nome de classe).
+
+   Como solução fatoramos a gramática dentro do corpo do método (MethodBody).
+   Aceitando qualquer coisa que comece com ID e decidimos o que é baseados
+   no que vem depois (outro ID ou um sinal de igual, colchete, etc).
+*/
+
+MethodBody ::= MethodBody MethodStatement
+             | /* vazio */
+             ;
+
+MethodStatement ::= TypeNotID ID SEMICOLON
+                  | StatementNotID
+                  | StatementStartingWithID
+                  ;
+
+/* Tipos que não são ID */
+TypeNotID ::= INT LBRACKET RBRACKET
+            | BOOLEAN
+            | INT
+            ;
+
+/* Comandos que começam com palavras-chave ou blocos */
+StatementNotID ::= LBRACE MethodBody RBRACE
+                 | IF LPAREN Expression RPAREN Statement ELSE Statement
+                 | WHILE LPAREN Expression RPAREN Statement
+                 | SYSTEM_OUT_PRINTLN LPAREN Expression RPAREN SEMICOLON
+                 ;
+
+/* Tratamento da ambiguidade */
+StatementStartingWithID ::= ID ID SEMICOLON
+                          | ID ASSIGN Expression SEMICOLON
+                          | ID LBRACKET Expression RBRACKET ASSIGN Expression SEMICOLON
+                          ;
+
+/* Statement genérico para estruturas recursivas */
+Statement ::= StatementNotID
+            | ID ASSIGN Expression SEMICOLON
+            | ID LBRACKET Expression RBRACKET ASSIGN Expression SEMICOLON
+            ;
+
+/* Expressões */
+
+Expression ::= Expression AND Expression
+             | Expression OR Expression
+             | Expression LESS_THAN Expression
+             | Expression GREATER_THAN Expression
+             | Expression EQUAL Expression
+             | Expression NOT_EQUAL Expression
+             | Expression LESS_THAN_EQUAL Expression
+             | Expression GREATER_THAN_EQUAL Expression
+             | Expression PLUS Expression
+             | Expression MINUS Expression
+             | Expression TIMES Expression
+             | Expression DIVIDE Expression
+             | Expression LBRACKET Expression RBRACKET
+             | Expression DOT LENGTH
+             | Expression DOT ID LPAREN ExpList RPAREN
+             | Expression DOT ID LPAREN RPAREN
+             | INTEGER_LITERAL
+             | TRUE
+             | FALSE
+             | NULL
+             | ID
+             | THIS
+             | NEW INT LBRACKET Expression RBRACKET
+             | NEW ID LPAREN RPAREN
+             | NEGATION Expression
+             | LPAREN Expression RPAREN
+             ;
+
+/* Listas de Argumentos em Chamadas - Recursão à esquerda */
+ExpList ::= Expression
+          | ExpList COMMA Expression
+          ;

@@ -1,5 +1,5 @@
 <CLASS>
-<ID "Fatorial">
+<ID "LinearSearch">
 <LBRACE>
 <PUBLIC>
 <STATIC>
@@ -15,11 +15,11 @@
 <SYSTEM_OUT_PRINTLN>
 <LPAREN>
 <NEW>
-<ID "Fac">
+<ID "LS">
 <LPAREN>
 <RPAREN>
 <DOT>
-<ID "ComputeFac">
+<ID "Start">
 <LPAREN>
 <INTEGER_LITERAL "10">
 <RPAREN>
@@ -28,49 +28,44 @@
 <RBRACE>
 <RBRACE>
 <CLASS>
-<ID "Fac">
+<ID "LS">
 <LBRACE>
 <PUBLIC>
 <INT>
-<ID "ComputeFac">
+<ID "Start">
 <LPAREN>
 <INT>
-<ID "num">
+<ID "sz">
 <RPAREN>
 <LBRACE>
-<INT>
-<ID "num_aux">
-<SEMICOLON>
 <IF>
 <LPAREN>
-<ID "num">
+<TRUE>
+<AND>
+<LPAREN>
+<INTEGER_LITERAL "1">
 <LESS_THAN>
+<INTEGER_LITERAL "2">
+<RPAREN>
+<RPAREN>
+<LBRACE>
+<SYSTEM_OUT_PRINTLN>
+<LPAREN>
 <INTEGER_LITERAL "1">
 <RPAREN>
-<ID "num_aux">
-<ASSIGN>
-<INTEGER_LITERAL "1">
 <SEMICOLON>
+<RBRACE>
 <ELSE>
-<ID "num_aux">
-<ASSIGN>
-<ID "num">
-<TIMES>
+<LBRACE>
+<SYSTEM_OUT_PRINTLN>
 <LPAREN>
-<THIS>
-<DOT>
-<ID "ComputeFac">
-<LPAREN>
-<ID "num">
-<MINUS>
-<INTEGER_LITERAL "1">
-<RPAREN>
+<INTEGER_LITERAL "0">
 <RPAREN>
 <SEMICOLON>
+<RBRACE>
 <RETURN>
-<ID "num_aux">
+<INTEGER_LITERAL "0">
 <SEMICOLON>
 <RBRACE>
 <RBRACE>
 <EOF>
-Fim da análise léxica.
