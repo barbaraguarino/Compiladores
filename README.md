@@ -162,8 +162,16 @@ Existem duas formas de executar:
 ##### Opção A: Modo Interativo (Recomendado)
 Se você executar sem argumentos, o programa abrirá um menu no terminal listando os arquivos da pasta de exemplos para você escolher.
 
+###### No Linux/Mac
+
 ```bash
   java -cp "target/classes:target/dependency/*" org.uff.minijava.MainMiniJava
+```
+
+###### No Windows
+
+```bash
+  java -cp "target/classes;target/dependency/*" org.uff.minijava.MainMiniJava
 ```
 
 ##### Opção B: Via Linha de Comando (Arquivo Específico)
@@ -172,9 +180,18 @@ Você pode passar o caminho do arquivo diretamente como argumento.
 
 **Nota**: O comando abaixo assume que você possui o .jar do java-cup-runtime no seu repositório local Maven ou configurado no classpath. Ajuste o caminho conforme seu ambiente.
 
+###### No Linux/Mac
+
 ```bash
   # Sintaxe: java -cp <classpath> org.uff.minijava.MainMiniJava <caminho-do-arquivo>
   java -cp "target/classes:target/dependency/*" org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
+```
+
+###### No Windows
+
+```bash
+  # Sintaxe: java -cp <classpath> org.uff.minijava.MainMiniJava <caminho-do-arquivo>
+  java -cp "target/classes;target/dependency/*" org.uff.minijava.MainMiniJava src/main/resources/minijava/entradas/BinarySearch.mjava
 ```
 
 **Exemplos de testes disponíveis na pasta `entradas`:**
